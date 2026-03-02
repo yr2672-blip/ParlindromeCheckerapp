@@ -1,4 +1,4 @@
-// Import package for Scanner class
+// Import Scanner class
 import java.util.Scanner;
 
 public class ParliandromeCheckerapp {
@@ -9,21 +9,21 @@ public class ParliandromeCheckerapp {
         Scanner sc = new Scanner(System.in);
 
         // Take input from user
-        System.out.print("Enter a word: ");
-        String word = sc.nextLine();
+        System.out.print("Enter a string: ");
+        String original = sc.nextLine();
 
-        // Reverse the string
+        // Reverse the string using loop
         String reversed = "";
 
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed = reversed + word.charAt(i);
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
         }
 
-        // Check palindrome
-        if (word.equalsIgnoreCase(reversed)) {
-            System.out.println(word + " is a Palindrome.");
+        // Compare original and reversed string
+        if (original.equals(reversed)) {
+            System.out.println("Palindrome");
         } else {
-            System.out.println(word + " is NOT a Palindrome.");
+            System.out.println("Not a Palindrome");
         }
 
         // Close scanner
