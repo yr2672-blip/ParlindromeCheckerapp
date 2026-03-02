@@ -1,14 +1,26 @@
+import java.util.Scanner;
 
-public class ParliandromeCheckerapp {
-
-    static final String APP_NAME = "Parliandrome Checker App";
-    static final String VERSION = "v1.0";
+public class uc3 {
 
     public static void main(String[] args) {
 
-        System.out.println("=================================");
-        System.out.println("Welcome to " + APP_NAME);
-        System.out.println("Version: " + VERSION);
-        System.out.println("=================================");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String original = scanner.nextLine();
+
+        String reversed = "";
+
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed += original.charAt(i);
+        }
+
+        if (original.equals(reversed)) {
+            System.out.println("Palindrome ✅");
+        } else {
+            System.out.println("Not a Palindrome ❌");
+        }
+
+        scanner.close();
     }
 }
