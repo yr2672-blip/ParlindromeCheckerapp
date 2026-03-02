@@ -1,32 +1,37 @@
-// Import package for Scanner class
-import java.util.Scanner;
+import java.util.*;
 
-public class ParliandromeCheckerapp {
+public class uc6 {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
 
-        // Create Scanner object
-        Scanner sc = new Scanner(System.in);
+        String processed = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
-        // Take input from user
-        System.out.print("Enter a word: ");
-        String word = sc.nextLine();
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
 
-        // Reverse the string
-        String reversed = "";
-
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed = reversed + word.charAt(i);
+        for (char ch : processed.toCharArray()) {
+            queue.add(ch);
+            stack.push(ch);
         }
 
-        // Check palindrome
-        if (word.equalsIgnoreCase(reversed)) {
-            System.out.println(word + " is a Palindrome.");
+        boolean isPalindrome = true;
+
+        while (!queue.isEmpty()) {
+            if (!queue.remove().equals(stack.pop())) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            System.out.println("The string is a palindrome.");
         } else {
-            System.out.println(word + " is NOT a Palindrome.");
+            System.out.println("The string is not a palindrome.");
         }
 
-        // Close scanner
-        sc.close();
+        scanner.close();
     }
 }
