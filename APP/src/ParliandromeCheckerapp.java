@@ -7,6 +7,8 @@ public class ParliandromeCheckerapp {
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
 
+
+
         String processed = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
         Deque<Character> deque = new ArrayDeque<>();
